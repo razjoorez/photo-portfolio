@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './app/variables', './app/small', './app/medium', './app/large';
+
+
 .content {
     top:70px;
     position: relative;
+}
+
+body {
+    background-color: $body_colour;
 }
