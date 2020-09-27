@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,14 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MenuComponent,
     MainComponent,
-    HttpClientModule
+    //HttpClientModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
   exports: [
-    HttpClientModule
+    //HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

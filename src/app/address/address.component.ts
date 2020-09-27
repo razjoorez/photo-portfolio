@@ -8,16 +8,18 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class AddressComponent implements OnInit {
   AddressForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    this.AddressForm = this.fb.group({
-      firstLine: ['', Validators.required],
-      secondLine: [''],
-      postCode: ['', Validators.required],
 
-
-    })
+    this.AddressForm  = new FormGroup({
+      firstLine: new FormControl(''),
+      secondLine: new FormControl(''),
+      town: new FormControl(''),
+      postCode: new FormControl(['', Validators.required]),
+      country: new FormControl(['', Validators.required]),
+      saveProg: new FormControl(true)
+    });
   }
 
 }
