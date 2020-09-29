@@ -6,7 +6,7 @@
         <form (ngSubmit)="save()" [formGroup]="AddressForm"> 
             <div class="form-group">
               <label for="firstLine">First Line: * </label>
-              <input type="text" class="form-control" id="firstLine" formControlName="firstLine" required [ngClass]="{'is-invalid': !AddressForm.valid }">
+              <input type="text" class="form-control" id="firstLine" formControlName="firstLine" required [ngClass]="{'is-invalid': (AddressForm.controls.firstLine.touched && !AddressForm.controls.firstLine.valid ) }">
               <!-- <small id="firstLineHelp" class="form-text text-muted">Please enter first line of your Address.</small> -->
               <span class="invalid-feedback">
                 <small>Please Enter First Line of Address</small>
@@ -14,18 +14,18 @@
             </div>
             <div class="form-group">
               <label for="secondLine">Second Line: </label>
-              <input type="text" class="form-control" id="secondLine">
+              <input type="text" class="form-control" id="secondLine" formControlName="secondLine">
             </div>
             <div class="form-group">
                 <label for="postCode">PostCode/Zip:* </label>
-                <input type="text" class="form-control" id="postCode" required [ngClass]="{'is-invalid': !AddressForm.valid }">
+                <input type="text" class="form-control" id="postCode" formControlName="postCode" required [ngClass]="{'is-invalid': (postCode.dirty || postCode.touched) && !postCode.valid  }">
                 <span class="invalid-feedback">
                   <span>Please Enter PostCode/Zip</span>
                 </span>  
             </div>
             <div class="form-group">
                 <label for="town">Town: *</label>
-                <input type="text" class="form-control" formControlName="town" id="town" required [ngClass]="{'is-invalid': !AddressForm.valid }" >
+                <input type="text" class="form-control" formControlName="town" id="town" required [ngClass]="{'is-invalid':  (AddressForm.controls.town.dirty || AddressForm.controls.town.touched) && !AddressForm.controls.town.valid  }" >
                 <span class="invalid-feedback">
                   <span>Please Enter Town</span>
                 </span>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="country">Country: * </label>
-                <input type="text" class="form-control" id="country" required [ngClass]="{'is-invalid': !AddressForm.valid }">
+                <input type="text" class="form-control" id="country" formControlName="country" required [ngClass]="{'is-invalid': (AddressForm.controls.country.dirty || AddressForm.controls.country.touched) && !AddressForm.controls.country.valid }">
                 <span class="invalid-feedback">
                   <span>Please Enter Country</span>
                 </span>  
@@ -42,10 +42,12 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="saveProg">
               <label class="form-check-label"  for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" [disabled]="!AddressForm.valid" class="btn btn-dark">Submit</button>
           </form>
     </div>
 </div>
-form :{{AddressForm.valid}}
-
+form :{{AddressForm.valid}} <br>
+firstLine valid: {{AddressForm.get('firstLine').valid}}  <br>
+firstLine valid: {{AddressForm.controls.firstLine.valid}} <br>
+postCode valid: {{postCode.valid}}
   </div>

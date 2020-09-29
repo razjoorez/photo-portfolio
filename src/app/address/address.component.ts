@@ -8,6 +8,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class AddressComponent implements OnInit {
   AddressForm: FormGroup;
+  postCode = new FormControl();
   constructor() { }
 
   ngOnInit() {
@@ -16,10 +17,14 @@ export class AddressComponent implements OnInit {
       firstLine: new FormControl(''),
       secondLine: new FormControl(''),
       town: new FormControl(''),
-      postCode: new FormControl(['', Validators.required]),
-      country: new FormControl(['', Validators.required]),
+      postCode: this.postCode ,
+      country: new FormControl(''),
       saveProg: new FormControl(true)
     });
+  }
+
+  save() {
+    alert(JSON.stringify(this.AddressForm.value) );
   }
 
 }
