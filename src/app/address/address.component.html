@@ -43,6 +43,8 @@
               <label class="form-check-label"  for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" [disabled]="!AddressForm.valid" class="btn btn-dark">Submit</button>
+            <button type="submit" (click)="populateData()"  class="btn btn-dark ml-2">Test Data</button>
+            <button type="submit" (click)="semiPopulateData()"  class="btn btn-dark ml-2">Semi Populate Data</button>
           </form>
     </div>
 </div>

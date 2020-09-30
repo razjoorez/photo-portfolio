@@ -27,4 +27,36 @@ export class AddressComponent implements OnInit {
     alert(JSON.stringify(this.AddressForm.value) );
   }
 
+  populateData(): void {
+    this.AddressForm.setValue({
+      firstLine: '15 Elemes Avenue',
+      secondLine: 'Edith Road',
+      postCode: 'sw19',
+      country: 'uk',
+      town: 'London',
+      saveProg: 'true'
+    });
+  };
+
+  semiPopulateData(): void {
+
+    this.AddressForm.setValue({
+      firstLine: '',
+      secondLine: '',
+      postCode: '',
+      country: '',
+      town: '',
+      saveProg: 'false'
+    });
+
+    this.AddressForm.patchValue({
+      firstLine: '19 Elemes Road',
+      postCode: 'sw19',
+      country: 'uk',
+      town: 'London',
+      saveProg: 'true'
+    });
+  };
+
+
 }

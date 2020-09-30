@@ -1,0 +1,22 @@
+@media only screen and (min-width: 992px) {
+
+    body{
+        background-color: green
+    }
+
+    .nav-menu {
+        position: fixed;
+        //min-width: 100%;
+       // min-width: 80%;
+        //overflow:auto;
+        z-index: 10;
+        top: 0px;
+    }
+
+    .content {
+        background-color: green;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+}

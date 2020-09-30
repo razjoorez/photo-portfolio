@@ -1,0 +1,16 @@
+@media only screen and (max-width: 600px) {
+    .nav-menu {
+        position: fixed;
+        //min-width: 100%;
+       // min-width: 100%;
+        //overflow:auto;
+        z-index: 10;
+        top: 0px;
+    }
+
+    .content{
+        background-color: red;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
