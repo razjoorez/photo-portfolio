@@ -6,7 +6,7 @@
         <form (ngSubmit)="save()" [formGroup]="AddressForm"> 
             <div class="form-group">
               <label for="firstLine">First Line: * </label>
-              <input type="text" class="form-control" id="firstLine" formControlName="firstLine" required [ngClass]="{'is-invalid': (AddressForm.controls.firstLine.touched && !AddressForm.controls.firstLine.valid ) }">
+              <input type="text" class="form-control" id="firstLine" formControlName="firstLine" [ngClass]="{'is-invalid': (AddressForm.controls.firstLine.touched && !AddressForm.controls.firstLine.valid ) }">
               <!-- <small id="firstLineHelp" class="form-text text-muted">Please enter first line of your Address.</small> -->
               <span class="invalid-feedback">
                 <small>Please Enter First Line of Address</small>

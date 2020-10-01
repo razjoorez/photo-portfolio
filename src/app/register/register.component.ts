@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
   RegisterForm: FormGroup;
   constructor(private fb: FormBuilder) { 
     this.RegisterForm = this.fb.group({
-      email: '',
+      email: ['',[ Validators.required, Validators.email]],
       password: {value: '', disabled: true}
 
     });
