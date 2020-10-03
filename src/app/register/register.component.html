@@ -1,9 +1,21 @@
 <div class="row content">
     <div class="col-sm-12 col-lg-6 mb-4">
         <form [formGroup]="RegisterForm">
+          <div class="form-group">
+            <label for="firstName">Name </label>
+            <input type="text" class="form-control" id="firstName">
+          </div>
+          <div class="form-group">
+              <label for="lastName">Last Name </label>
+              <input type="text" class="form-control" id="lastName">
+              
+            </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" [ngClass]="{'is-invalid': !RegisterForm.controls.email.valid}" aria-describedby="emailHelp">
+              <span class="invalid-feedback">
+                  <span>Please Email Address</span>
+                </span>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
@@ -11,8 +23,11 @@
               <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
             </div>
             <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input type="checkbox" class="form-check-input" (click)="notifyBy('email')" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <!-- email Valid: {{RegisterForm.controls.email.valid}} -->
+              email valid:
+              {{RegisterForm.get('email').valid}}
             </div>
             <button type="submit" class="btn btn-dark">Submit</button>
           </form>
@@ -30,4 +45,6 @@
         </div>
       </div>
    </div>
+
+   
 </div>
