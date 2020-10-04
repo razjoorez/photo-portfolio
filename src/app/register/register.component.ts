@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
       firstName: [''],
       lastName: [''],
       email: ['', Validators.required],
-      password: {value: '', disabled: true}
+      password: {value: '', disabled: false},
+      notification: 'email'
 
     });
   }
@@ -27,16 +28,14 @@ export class RegisterComponent implements OnInit {
   notifyBy(method: string) {
     let emailVal = this.RegisterForm.get('email');
     emailVal.clearValidators();
-    
+
     if(method=='email'){
-     
-      //emailVal.setValidators(Validators.required);
-      emailVal.clearValidators();
-     
-      alert(method);
+      emailVal.setValidators(Validators.required);
+      emailVal.updateValueAndValidity();
     }else {
-     // emailVal.clearValidators();
-      alert('cleard')
+      emailVal.clearValidators();
+      emailVal.updateValueAndValidity();
+    
     }
     
   }
