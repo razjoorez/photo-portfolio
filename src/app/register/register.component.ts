@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+
+
+function rateRange(c:AbstractControl): {[key: string]: boolean} | null {
+
+  return null;
+
+}
+
+
 
 @Component({
   selector: 'app-register',
