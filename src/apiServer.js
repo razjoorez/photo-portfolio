@@ -16,12 +16,13 @@ const ads = [{ title: "Hello mini database" }];
 
 //creating faker database
 
-var database = {products:[]};
+var database = products =[];
+
 
 //populating database with faker
 
-for(i=0; i<=300; i++) {
-  database.products.push( {
+for(i=1; i<=301; i++) {
+  products.push( {
     id: i,
     name: faker.commerce.productName(),
     description: faker.lorem.sentences(),
