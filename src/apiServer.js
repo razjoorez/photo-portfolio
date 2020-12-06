@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const faker = require('faker');
 //console.log("Hello Api");
 
 //defining the express app
@@ -12,6 +13,23 @@ const app = express();
 
 const ads = [{ title: "Hello mini database" }];
 //adding helmet for security
+
+//creating faker database
+
+var database = {products:[]};
+
+//populating database with faker
+
+for(i=0; i<=300; i++) {
+  database.products.push( {
+    id: i,
+    name: faker.commerce.productName(),
+    description: faker.lorem.sentences(),
+    price: faker.commerce.price(),
+    imageUrl: "https://source.unsplash.com"
+  });
+}
+console.log(JSON.stringify(database));
 app.use(helmet());
 
 //using body parser to convert json to json objects
@@ -27,7 +45,7 @@ app.use(morgan("combined"));
 //defining an endpoint
 
 app.get("/apis", (req, res) => {
-  res.send(ads);
+  res.send(database);
 });
 
 app.post("/post", (req, res) => {
