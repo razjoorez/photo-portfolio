@@ -24,7 +24,8 @@ export class AddressComponent implements OnInit {
   }
 
   save() {
-    alert(JSON.stringify(this.AddressForm.value) );
+   // alert(JSON.stringify(this.AddressForm.value) );
+    console.log(JSON.stringify(this.AddressForm.value));
   }
 
   populateData(): void {
