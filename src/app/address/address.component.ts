@@ -12,7 +12,6 @@ export class AddressComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     this.AddressForm  = new FormGroup({
       firstLine: new FormControl('',[Validators.required, Validators.minLength(3)]),
       secondLine: new FormControl(''),

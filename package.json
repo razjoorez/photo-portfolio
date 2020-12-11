@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "generate": "node src/apiserver.js ",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
