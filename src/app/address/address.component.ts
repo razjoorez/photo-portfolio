@@ -8,16 +8,55 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class AddressComponent implements OnInit {
   AddressForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  postCode = new FormControl();
+  constructor() { }
 
   ngOnInit() {
-    this.AddressForm = this.fb.group({
-      firstLine: ['', Validators.required],
-      secondLine: [''],
-      postCode: ['', Validators.required],
-
-
-    })
+    this.AddressForm  = new FormGroup({
+      firstLine: new FormControl('',[Validators.required, Validators.minLength(3)]),
+      secondLine: new FormControl(''),
+      town: new FormControl(''),
+      postCode: this.postCode ,
+      country: new FormControl(''),
+      saveProg: new FormControl(true)
+    });
   }
+
+  save() {
+   // alert(JSON.stringify(this.AddressForm.value) );
+    console.log(JSON.stringify(this.AddressForm.value));
+  }
+
+  populateData(): void {
+    this.AddressForm.setValue({
+      firstLine: '15 Elemes Avenue',
+      secondLine: 'Edith Road',
+      postCode: 'sw19',
+      country: 'uk',
+      town: 'London',
+      saveProg: 'true'
+    });
+  };
+
+  semiPopulateData(): void {
+
+    this.AddressForm.setValue({
+      firstLine: '',
+      secondLine: '',
+      postCode: '',
+      country: '',
+      town: '',
+      saveProg: 'false'
+    });
+
+    this.AddressForm.patchValue({
+      firstLine: '19 Elemes Road',
+      postCode: 'sw19',
+      country: 'uk',
+      town: 'London',
+      saveProg: 'true'
+    });
+  };
+
 
 }
