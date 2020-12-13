@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ToastrService } from '../common/toastr.service';
 
 
 @NgModule({
@@ -13,6 +14,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RegisterRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    ToastrService
   ]
 })
 export class RegisterModule { }

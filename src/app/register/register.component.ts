@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { ToastrService } from '../common/toastr.service';
 
 
 function rateRange(c:AbstractControl): {[key: string]: boolean} | null {
@@ -17,7 +18,8 @@ function rateRange(c:AbstractControl): {[key: string]: boolean} | null {
 })
 export class RegisterComponent implements OnInit {
   RegisterForm: FormGroup;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,
+              private toaster: ToastrService) { 
     this.RegisterForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -33,6 +35,11 @@ export class RegisterComponent implements OnInit {
    // emailVal.clearValidators();
 
   }
+
+  save() {
+    this.toaster.success("Registration Successfull");
+  }
+
 
   notifyBy(method: string) {
     let emailVal = this.RegisterForm.get('email');
